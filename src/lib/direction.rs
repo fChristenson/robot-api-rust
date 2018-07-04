@@ -1,21 +1,11 @@
 use std::iter::*;
 
+#[derive(Serialize, Deserialize)]
 pub enum Direction {
   North,
   East,
   South,
   West,
-}
-
-impl Direction {
-  pub fn value(&self) -> &str {
-    match *self {
-      Direction::North => "north",
-      Direction::East => "east",
-      Direction::South => "south",
-      Direction::West => "west",
-    }
-  }
 }
 
 impl Clone for Direction {
