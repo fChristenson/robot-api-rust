@@ -3,10 +3,8 @@
 
 #[macro_use]
 extern crate serde_derive;
-
-extern crate serde_json;
-
 extern crate rocket;
+extern crate serde_json;
 mod lib;
 use lib::direction::Direction;
 use lib::point::Point;
