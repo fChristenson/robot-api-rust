@@ -8,7 +8,7 @@ pub struct Robot {
 }
 
 impl Robot {
-  pub fn move_forward(&mut self) {
+  pub fn move_forward(&mut self) -> &Robot {
     match self.facing {
       Direction::North => {
         let new_y = self.position.y.checked_add(1).unwrap_or(u32::max_value());
@@ -21,13 +21,17 @@ impl Robot {
       Direction::South => self.position.y = self.position.y.checked_sub(1).unwrap_or(0),
       Direction::West => self.position.x = self.position.x.checked_sub(1).unwrap_or(0),
     };
+
+    self
   }
 
-  pub fn turn_right(&mut self) {
+  pub fn turn_right(&mut self) -> &Robot {
     self.facing = self.facing.next().unwrap();
+    self
   }
 
-  pub fn turn_left(&mut self) {
+  pub fn turn_left(&mut self) -> &Robot {
     self.facing = self.facing.clone().rev().next().unwrap();
+    self
   }
 }
